@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="460" viewBox="0 0 1200 460">
+  <rect width="1200" height="460" fill="#f8fafc"/>
+  <text x="40" y="60" font-family="Arial" font-size="30" font-weight="700" fill="#0f172a">AWS Console Manual Setup - Target Group, ALB, Launch Template, and ASG</text>
+  <text x="40" y="95" font-family="Arial" font-size="18" fill="#334155">Use the AMI to scale application instances behind an internet-facing Application Load Balancer.</text>
+  <rect x="70" y="145" width="170" height="170" rx="16" fill="#eff6ff" stroke="#60a5fa"/>
+  <text x="95" y="190" font-family="Arial" font-size="22" font-weight="700" fill="#1d4ed8">Target Group</text>
+  <text x="95" y="223" font-family="Arial" font-size="17" fill="#0f172a">/health.html</text>
+  <text x="95" y="250" font-family="Arial" font-size="17" fill="#0f172a">HTTP:80</text>
+  <rect x="280" y="145" width="170" height="170" rx="16" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="326" y="190" font-family="Arial" font-size="22" font-weight="700" fill="#1e3a8a">ALB</text>
+  <text x="306" y="223" font-family="Arial" font-size="17" fill="#0f172a">Public subnets</text>
+  <text x="308" y="250" font-family="Arial" font-size="17" fill="#0f172a">Listener 80</text>
+  <rect x="490" y="145" width="170" height="170" rx="16" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="510" y="190" font-family="Arial" font-size="22" font-weight="700" fill="#92400e">Launch Template</text>
+  <text x="520" y="223" font-family="Arial" font-size="17" fill="#0f172a">AMI + app SG</text>
+  <text x="515" y="250" font-family="Arial" font-size="17" fill="#0f172a">EC2 role</text>
+  <rect x="700" y="135" width="430" height="200" rx="16" fill="#dcfce7" stroke="#22c55e"/>
+  <text x="730" y="180" font-family="Arial" font-size="22" font-weight="700" fill="#166534">Auto Scaling Group</text>
+  <text x="730" y="212" font-family="Arial" font-size="17" fill="#0f172a">Desired: 2 | Min: 2 | Max: 4</text>
+  <text x="730" y="239" font-family="Arial" font-size="17" fill="#0f172a">Private app subnets A and B</text>
+  <rect x="735" y="260" width="150" height="50" rx="10" fill="#ffffff" stroke="#22c55e"/>
+  <text x="775" y="292" font-family="Arial" font-size="18" fill="#0f172a">EC2 App A</text>
+  <rect x="925" y="260" width="150" height="50" rx="10" fill="#ffffff" stroke="#22c55e"/>
+  <text x="965" y="292" font-family="Arial" font-size="18" fill="#0f172a">EC2 App B</text>
+  <path d="M240 230 L280 230" stroke="#64748b" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M450 230 L490 230" stroke="#64748b" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M660 230 L700 230" stroke="#64748b" stroke-width="4" marker-end="url(#arrow)"/>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#64748b"/></marker></defs>
+</svg>

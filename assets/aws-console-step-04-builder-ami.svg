@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420">
+  <rect width="1200" height="420" fill="#f8fafc"/>
+  <text x="40" y="60" font-family="Arial" font-size="30" font-weight="700" fill="#0f172a">AWS Console Manual Setup - Builder Instance and AMI</text>
+  <text x="40" y="95" font-family="Arial" font-size="18" fill="#334155">Launch a temporary EC2 builder, install the sample app, test RDS connectivity, then create an AMI.</text>
+  <rect x="85" y="145" width="285" height="185" rx="18" fill="#dcfce7" stroke="#22c55e"/>
+  <text x="120" y="190" font-family="Arial" font-size="24" font-weight="700" fill="#166534">1. Builder EC2</text>
+  <text x="120" y="225" font-family="Arial" font-size="18" fill="#0f172a">Public subnet</text>
+  <text x="120" y="253" font-family="Arial" font-size="18" fill="#0f172a">Amazon Linux 2023</text>
+  <text x="120" y="281" font-family="Arial" font-size="18" fill="#0f172a">IAM role + app SG</text>
+  <rect x="457" y="145" width="285" height="185" rx="18" fill="#eff6ff" stroke="#60a5fa"/>
+  <text x="492" y="190" font-family="Arial" font-size="24" font-weight="700" fill="#1d4ed8">2. Install App</text>
+  <text x="492" y="225" font-family="Arial" font-size="18" fill="#0f172a">Apache + PHP</text>
+  <text x="492" y="253" font-family="Arial" font-size="18" fill="#0f172a">health.html + index</text>
+  <text x="492" y="281" font-family="Arial" font-size="18" fill="#0f172a">Test DB connection</text>
+  <rect x="829" y="145" width="285" height="185" rx="18" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="864" y="190" font-family="Arial" font-size="24" font-weight="700" fill="#92400e">3. Create AMI</text>
+  <text x="864" y="225" font-family="Arial" font-size="18" fill="#0f172a">Reusable machine image</text>
+  <text x="864" y="253" font-family="Arial" font-size="18" fill="#0f172a">for Auto Scaling</text>
+  <path d="M370 237 L457 237" stroke="#64748b" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M742 237 L829 237" stroke="#64748b" stroke-width="4" marker-end="url(#arrow)"/>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#64748b"/></marker></defs>
+</svg>

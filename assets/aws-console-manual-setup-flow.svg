@@ -1,0 +1,36 @@
+<svg width="1400" height="760" viewBox="0 0 1400 760" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AWS console manual setup flow">
+  <rect width="1400" height="760" rx="24" fill="#F8FAFC"/>
+  <text x="700" y="58" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="800" fill="#0F172A">Manual AWS Console Build Flow</text>
+  <text x="700" y="94" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#475569">Build first by hand, then repeat using scripts, Terraform or CloudFormation.</text>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#334155" />
+    </marker>
+  </defs>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700">
+    <g transform="translate(70,145)"><rect width="250" height="82" rx="16" fill="#E0F2FE" stroke="#0284C7"/><text x="125" y="34" text-anchor="middle" fill="#0F172A">1. Account Safety</text><text x="125" y="59" text-anchor="middle" font-size="14" font-weight="500" fill="#334155">MFA • Budget • Region</text></g>
+    <g transform="translate(380,145)"><rect width="250" height="82" rx="16" fill="#FEF3C7" stroke="#F59E0B"/><text x="125" y="34" text-anchor="middle" fill="#0F172A">2. Network Foundation</text><text x="125" y="59" text-anchor="middle" font-size="14" font-weight="500" fill="#334155">VPC • Subnets • Routes</text></g>
+    <g transform="translate(690,145)"><rect width="250" height="82" rx="16" fill="#DCFCE7" stroke="#16A34A"/><text x="125" y="34" text-anchor="middle" fill="#0F172A">3. Security Model</text><text x="125" y="59" text-anchor="middle" font-size="14" font-weight="500" fill="#334155">IAM • SG • Least privilege</text></g>
+    <g transform="translate(1000,145)"><rect width="250" height="82" rx="16" fill="#FCE7F3" stroke="#DB2777"/><text x="125" y="34" text-anchor="middle" fill="#0F172A">4. Storage + Data</text><text x="125" y="59" text-anchor="middle" font-size="14" font-weight="500" fill="#334155">S3 • RDS • Backups</text></g>
+
+    <line x1="320" y1="186" x2="374" y2="186" stroke="#334155" stroke-width="3" marker-end="url(#arrow)"/>
+    <line x1="630" y1="186" x2="684" y2="186" stroke="#334155" stroke-width="3" marker-end="url(#arrow)"/>
+    <line x1="940" y1="186" x2="994" y2="186" stroke="#334155" stroke-width="3" marker-end="url(#arrow)"/>
+
+    <g transform="translate(70,315)"><rect width="250" height="82" rx="16" fill="#EDE9FE" stroke="#7C3AED"/><text x="125" y="34" text-anchor="middle" fill="#0F172A">5. EC2 Builder</text><text x="125" y="59" text-anchor="middle" font-size="14" font-weight="500" fill="#334155">Install app • Test DB</text></g>
+    <g transform="translate(380,315)"><rect width="250" height="82" rx="16" fill="#FFE4E6" stroke="#E11D48"/><text x="125" y="34" text-anchor="middle" fill="#0F172A">6. AMI + Template</text><text x="125" y="59" text-anchor="middle" font-size="14" font-weight="500" fill="#334155">Golden image • User data</text></g>
+    <g transform="translate(690,315)"><rect width="250" height="82" rx="16" fill="#CCFBF1" stroke="#0F766E"/><text x="125" y="34" text-anchor="middle" fill="#0F172A">7. ALB + Target Group</text><text x="125" y="59" text-anchor="middle" font-size="14" font-weight="500" fill="#334155">Health check • HTTP 80</text></g>
+    <g transform="translate(1000,315)"><rect width="250" height="82" rx="16" fill="#FFEDD5" stroke="#EA580C"/><text x="125" y="34" text-anchor="middle" fill="#0F172A">8. Auto Scaling</text><text x="125" y="59" text-anchor="middle" font-size="14" font-weight="500" fill="#334155">2 AZs • Desired / Min / Max</text></g>
+
+    <line x1="320" y1="356" x2="374" y2="356" stroke="#334155" stroke-width="3" marker-end="url(#arrow)"/>
+    <line x1="630" y1="356" x2="684" y2="356" stroke="#334155" stroke-width="3" marker-end="url(#arrow)"/>
+    <line x1="940" y1="356" x2="994" y2="356" stroke="#334155" stroke-width="3" marker-end="url(#arrow)"/>
+
+    <g transform="translate(225,500)"><rect width="270" height="82" rx="16" fill="#F1F5F9" stroke="#475569"/><text x="135" y="34" text-anchor="middle" fill="#0F172A">9. Monitoring</text><text x="135" y="59" text-anchor="middle" font-size="14" font-weight="500" fill="#334155">CloudWatch • Alarms • Logs</text></g>
+    <g transform="translate(565,500)"><rect width="270" height="82" rx="16" fill="#F1F5F9" stroke="#475569"/><text x="135" y="34" text-anchor="middle" fill="#0F172A">10. Validate</text><text x="135" y="59" text-anchor="middle" font-size="14" font-weight="500" fill="#334155">ALB DNS • RDS • S3 • ASG</text></g>
+    <g transform="translate(905,500)"><rect width="270" height="82" rx="16" fill="#F1F5F9" stroke="#475569"/><text x="135" y="34" text-anchor="middle" fill="#0F172A">11. Cleanup</text><text x="135" y="59" text-anchor="middle" font-size="14" font-weight="500" fill="#334155">Delete resources safely</text></g>
+    <line x1="495" y1="541" x2="559" y2="541" stroke="#334155" stroke-width="3" marker-end="url(#arrow)"/>
+    <line x1="835" y1="541" x2="899" y2="541" stroke="#334155" stroke-width="3" marker-end="url(#arrow)"/>
+  </g>
+  <text x="700" y="680" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#0F172A">Recommended path: Manual Console → Scripts → Terraform → CloudFormation → Portfolio documentation</text>
+</svg>

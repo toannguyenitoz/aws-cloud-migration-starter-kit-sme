@@ -4,43 +4,6 @@
 
 > This guide shows how to build the lab directly in the **AWS Management Console**. It is designed for learners who want to understand every AWS component before using scripts, Terraform, or CloudFormation.
 
-![AWS Console Manual Setup Flow](../../assets/aws-console-manual-setup-flow.svg)
-
-## Quick Navigation
-
-- [1. Goal](#1-goal)
-- [2. Important Cost and Security Warning](#2-important-cost-and-security-warning)
-- [3. Lab Assumptions](#3-lab-assumptions)
-- [4. Target Architecture](#4-target-architecture)
-- [5. Step 1 - Select Region](#5-step-1---select-region)
-- [6. Step 2 - Account Safety Setup](#6-step-2---account-safety-setup)
-- [7. Step 3 - Create the VPC](#7-step-3---create-the-vpc)
-- [8. Step 4 - Create Subnets](#8-step-4---create-subnets)
-- [9. Step 5 - Create Internet Gateway](#9-step-5---create-internet-gateway)
-- [10. Step 6 - Create NAT Gateway](#10-step-6---create-nat-gateway)
-- [11. Step 7 - Create Route Tables](#11-step-7---create-route-tables)
-- [12. Step 8 - Create Security Groups](#12-step-8---create-security-groups)
-- [13. Step 9 - Create IAM Role for EC2](#13-step-9---create-iam-role-for-ec2)
-- [14. Step 10 - Create S3 Bucket](#14-step-10---create-s3-bucket)
-- [15. Step 11 - Create RDS DB Subnet Group](#15-step-11---create-rds-db-subnet-group)
-- [16. Step 12 - Create RDS Database](#16-step-12---create-rds-database)
-- [17. Step 13 - Create a Temporary EC2 Builder Instance](#17-step-13---create-a-temporary-ec2-builder-instance)
-- [18. Step 14 - Create an AMI from the Builder Instance](#18-step-14---create-an-ami-from-the-builder-instance)
-- [19. Step 15 - Create Target Group](#19-step-15---create-target-group)
-- [20. Step 16 - Create Application Load Balancer](#20-step-16---create-application-load-balancer)
-- [21. Step 17 - Create Launch Template](#21-step-17---create-launch-template)
-- [22. Step 18 - Create Auto Scaling Group](#22-step-18---create-auto-scaling-group)
-- [23. Step 19 - Validate Load Balancing](#23-step-19---validate-load-balancing)
-- [24. Step 20 - Test Auto Scaling](#24-step-20---test-auto-scaling)
-- [25. Step 21 - Configure CloudWatch Alarms](#25-step-21---configure-cloudwatch-alarms)
-- [26. Step 22 - Configure Backup](#26-step-22---configure-backup)
-- [27. Step 23 - Optional DNS Cutover Simulation](#27-step-23---optional-dns-cutover-simulation)
-- [28. Step 24 - Final Validation Checklist](#28-step-24---final-validation-checklist)
-- [29. Common Troubleshooting](#29-common-troubleshooting)
-- [30. Cleanup Order](#30-cleanup-order)
-- [31. What to Document for Your Portfolio](#31-what-to-document-for-your-portfolio)
-- [32. Next Step](#32-next-step)
-
 ---
 
 ## 1. Goal
@@ -70,9 +33,6 @@ The manual build includes:
 - CloudWatch monitoring
 - Backup and cleanup checklist
 
-
-[⬆ Back to Top](#top)
-
 ---
 
 ## 2. Important Cost and Security Warning
@@ -99,9 +59,6 @@ Before you begin:
 - Do not use the root account for daily work.
 - Do not commit passwords, access keys, private keys, or real business data to GitHub.
 - Delete resources when you finish the lab.
-
-
-[⬆ Back to Top](#top)
 
 ---
 
@@ -136,9 +93,6 @@ scos-dev-alb
 scos-dev-asg
 scos-dev-rds
 ```
-
-
-[⬆ Back to Top](#top)
 
 ---
 
@@ -177,15 +131,9 @@ Network layout:
 | Private DB | `scos-dev-db-a` | `10.20.20.0/24` | RDS subnet group |
 | Private DB | `scos-dev-db-b` | `10.20.21.0/24` | RDS subnet group |
 
-
-[⬆ Back to Top](#top)
-
 ---
 
 ## 5. Step 1 - Select Region
-
-![Step 1 and 2 Overview](../../assets/aws-console-step-01-region-safety.svg)
-
 
 1. Sign in to the AWS Management Console.
 2. In the top-right Region selector, choose:
@@ -196,15 +144,9 @@ Asia Pacific (Sydney) ap-southeast-2
 
 Sydney is used because the fictional company is based in Adelaide and this is a common Australian AWS Region for beginner labs.
 
-
-[⬆ Back to Top](#top)
-
 ---
 
 ## 6. Step 2 - Account Safety Setup
-
-> **Tip:** Complete MFA and Budget setup before you create cost-incurring resources such as NAT Gateway, ALB, and RDS.
-
 
 ### 6.1 Enable MFA
 
@@ -240,15 +182,9 @@ Use these tags on all resources:
 | Company | SCOS |
 | CostCentre | Lab |
 
-
-[⬆ Back to Top](#top)
-
 ---
 
 ## 7. Step 3 - Create the VPC
-
-![Network Foundation Illustration](../../assets/aws-console-step-02-network-foundation.svg)
-
 
 1. Open **VPC**.
 2. Choose **Your VPCs**.
@@ -273,15 +209,9 @@ DNS resolution: Enabled
 DNS hostnames: Enabled
 ```
 
-
-[⬆ Back to Top](#top)
-
 ---
 
 ## 8. Step 4 - Create Subnets
-
-> **Tip:** Keep public, application, and database layers separated. This is one of the most important cloud design habits for beginners.
-
 
 1. Open **VPC > Subnets**.
 2. Choose **Create subnet**.
@@ -316,9 +246,6 @@ Auto-assign public IPv4 address
 
 Do not enable this for private app or private database subnets.
 
-
-[⬆ Back to Top](#top)
-
 ---
 
 ## 9. Step 5 - Create Internet Gateway
@@ -340,9 +267,6 @@ Name tag: scos-dev-web-igw
 scos-dev-web-vpc
 ```
 
-
-[⬆ Back to Top](#top)
-
 ---
 
 ## 10. Step 6 - Create NAT Gateway
@@ -362,9 +286,6 @@ Elastic IP allocation ID: Allocate Elastic IP
 
 4. Choose **Create NAT gateway**.
 5. Wait until the NAT Gateway status becomes **Available**.
-
-
-[⬆ Back to Top](#top)
 
 ---
 
@@ -439,15 +360,9 @@ scos-dev-db-a
 scos-dev-db-b
 ```
 
-
-[⬆ Back to Top](#top)
-
 ---
 
 ## 12. Step 8 - Create Security Groups
-
-![Security and Core Services Illustration](../../assets/aws-console-step-03-security-services.svg)
-
 
 Open **EC2 > Security Groups** or **VPC > Security Groups**.
 
@@ -532,9 +447,6 @@ Outbound:
 Allow all outbound
 ```
 
-
-[⬆ Back to Top](#top)
-
 ---
 
 ## 13. Step 9 - Create IAM Role for EC2
@@ -568,9 +480,6 @@ scos-dev-ec2-app-role
 ```
 
 8. Create role.
-
-
-[⬆ Back to Top](#top)
 
 ---
 
@@ -642,9 +551,6 @@ Move current versions to Glacier Instant Retrieval or Deep Archive after 90 days
 Expire old noncurrent versions after 365 days
 ```
 
-
-[⬆ Back to Top](#top)
-
 ---
 
 ## 15. Step 11 - Create RDS DB Subnet Group
@@ -670,15 +576,9 @@ scos-dev-db-b
 
 7. Choose **Create**.
 
-
-[⬆ Back to Top](#top)
-
 ---
 
 ## 16. Step 12 - Create RDS Database
-
-> **Tip:** For a portfolio lab, use a low-cost instance class and remember that Multi-AZ, storage, and backup retention can increase cost.
-
 
 1. Open **RDS > Databases**.
 2. Choose **Create database**.
@@ -753,15 +653,9 @@ Deletion protection: Enabled for production, optional for lab
 13. Wait until status is **Available**.
 14. Copy the RDS endpoint for later testing.
 
-
-[⬆ Back to Top](#top)
-
 ---
 
 ## 17. Step 13 - Create a Temporary EC2 Builder Instance
-
-![Builder Instance and AMI Illustration](../../assets/aws-console-step-04-builder-ami.svg)
-
 
 This step creates a temporary EC2 instance used to install the sample web application and create an AMI.
 
@@ -885,9 +779,6 @@ If the connection fails, check:
 - Subnets and route tables are correct.
 - Username, password, and endpoint are correct.
 
-
-[⬆ Back to Top](#top)
-
 ---
 
 ## 18. Step 14 - Create an AMI from the Builder Instance
@@ -911,15 +802,9 @@ No reboot: Disabled for cleaner image
 5. Choose **Create image**.
 6. Wait until AMI status is **Available** under **EC2 > AMIs**.
 
-
-[⬆ Back to Top](#top)
-
 ---
 
 ## 19. Step 15 - Create Target Group
-
-![ALB and Auto Scaling Illustration](../../assets/aws-console-step-05-alb-asg.svg)
-
 
 1. Open **EC2 > Target Groups**.
 2. Choose **Create target group**.
@@ -948,9 +833,6 @@ Success codes: 200
 
 5. Do not manually register targets if the Auto Scaling Group will do it.
 6. Create target group.
-
-
-[⬆ Back to Top](#top)
 
 ---
 
@@ -990,9 +872,6 @@ Default action: Forward to scos-dev-web-tg
 
 8. Create load balancer.
 9. Wait until state is **Active**.
-
-
-[⬆ Back to Top](#top)
 
 ---
 
@@ -1047,9 +926,6 @@ Metadata version: Require IMDSv2 if available
 ```
 
 10. Create launch template.
-
-
-[⬆ Back to Top](#top)
 
 ---
 
@@ -1114,15 +990,9 @@ Optional for lab
 10. Review and create Auto Scaling Group.
 11. Wait until two instances launch.
 
-
-[⬆ Back to Top](#top)
-
 ---
 
 ## 23. Step 19 - Validate Load Balancing
-
-![Validation, Monitoring, Backup, and Cleanup Illustration](../../assets/aws-console-step-06-validation-ops.svg)
-
 
 ### 23.1 Check Target Health
 
@@ -1172,15 +1042,9 @@ Southern Cross Office Supplies - AWS Cloud Migration Lab
 Application server is running.
 ```
 
-
-[⬆ Back to Top](#top)
-
 ---
 
 ## 24. Step 20 - Test Auto Scaling
-
-> **Tip:** For a learner lab, manually changing the desired capacity is the safest way to demonstrate scaling without generating unnecessary load or surprise cost.
-
 
 For a safe beginner test, avoid aggressive load testing.
 
@@ -1201,9 +1065,6 @@ Option B - CPU-based test:
 4. Stop the load quickly.
 
 Do not run uncontrolled stress tests on production accounts.
-
-
-[⬆ Back to Top](#top)
 
 ---
 
@@ -1228,9 +1089,6 @@ For notifications:
 1. Create or select an SNS topic.
 2. Subscribe your email.
 3. Confirm subscription from your inbox.
-
-
-[⬆ Back to Top](#top)
 
 ---
 
@@ -1281,9 +1139,6 @@ Retention: 14 or 30 days for lab
 Resources: RDS and selected EBS volumes
 ```
 
-
-[⬆ Back to Top](#top)
-
 ---
 
 ## 27. Step 23 - Optional DNS Cutover Simulation
@@ -1304,9 +1159,6 @@ Example records:
 |---|---|
 | `portal-test.example.com` | ALB DNS name |
 | `old-portal.example.com` | Old on-premises endpoint |
-
-
-[⬆ Back to Top](#top)
 
 ---
 
@@ -1333,9 +1185,6 @@ Example records:
 | Budget | Created |
 | Cleanup plan | Documented |
 
-
-[⬆ Back to Top](#top)
-
 ---
 
 ## 29. Common Troubleshooting
@@ -1351,9 +1200,6 @@ Example records:
 | ASG launches but terminates instances | Failed health check | Check Apache, health path, SG, instance boot logs |
 | S3 access denied | IAM role missing bucket permissions | Add least-privilege S3 policy to EC2 role |
 | Costs increasing | NAT Gateway, ALB, RDS still running | Delete lab resources after testing |
-
-
-[⬆ Back to Top](#top)
 
 ---
 
@@ -1385,9 +1231,6 @@ Deleting the NAT Gateway does not always release the Elastic IP automatically.
 Check Elastic IPs and release unused addresses.
 ```
 
-
-[⬆ Back to Top](#top)
-
 ---
 
 ## 31. What to Document for Your Portfolio
@@ -1412,9 +1255,6 @@ Write a short summary:
 I designed and manually configured a three-tier AWS architecture for a simulated Adelaide-based SME. The environment used a segmented VPC, public and private subnets, ALB, EC2 Auto Scaling, private RDS, S3 backup storage, IAM roles, CloudWatch monitoring, and cost controls. I then compared the manual deployment with script/IaC approaches to improve repeatability.
 ```
 
-
-[⬆ Back to Top](#top)
-
 ---
 
 ## 32. Next Step
@@ -1428,4 +1268,3 @@ After you finish the manual console build, repeat the same design using:
 This helps you understand the difference between manual administration and repeatable Infrastructure as Code.
 
 [⬆ Back to Top](#top)
-
