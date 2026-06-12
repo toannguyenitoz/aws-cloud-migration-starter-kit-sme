@@ -26,7 +26,6 @@
 </p>
 
 <p align="center">
-  <a href="README-VI.md">🇻🇳 Vietnamese Guide</a> •
   <a href="docs/setup/09-aws-console-manual-setup.md">🖱️ AWS Console Manual Setup</a> •
   <a href="docs/setup/10-aws-console-build-checklist.md">✅ Build Checklist</a> •
   <a href="iac/terraform/README.md">⚙️ Terraform Lab</a> •
@@ -234,7 +233,6 @@ Use this checklist while building: [docs/setup/10-aws-console-build-checklist.md
 ```text
 aws-cloud-migration-starter-kit-sme/
 ├── README.md
-├── README-VI.md
 ├── AUTHOR.md
 ├── assets/
 │   ├── aws-cloud-migration-banner.svg
