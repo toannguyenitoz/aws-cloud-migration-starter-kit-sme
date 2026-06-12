@@ -9,3 +9,8 @@ This is a learning repository. Contributions should keep the content practical, 
 - Keep examples generic.
 - Add warnings when resources may create cost.
 - Prefer clear explanations over complex architecture.
+
+
+---
+
+Maintained by **Xuan Toan Nguyen** - [GitHub](https://github.com/toannguyenitoz) | [LinkedIn](https://www.linkedin.com/in/toan-nguyen-it-oz)
