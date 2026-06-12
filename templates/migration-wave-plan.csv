@@ -1,0 +1,4 @@
+Wave,Workload,Strategy,StartDate,EndDate,Owner,SuccessCriteria,RollbackPlan
+0,Cloud Foundation,New Build,,,,VPC/IAM/logging ready,N/A
+1,Customer Portal,Replatform,,,,ALB healthy and app working,DNS back to old portal
+1,Product Images,Replatform,,,,Files available from S3,Use old file share

@@ -1,0 +1,3 @@
+ApplicationName,BusinessOwner,TechnicalOwner,Users,Runtime,Database,Dependencies,Criticality,RTO,RPO,MigrationStrategy,Wave
+Customer Order Portal,Operations Manager,Systems Administrator,Customers and Sales Team,PHP/MySQL,MySQL,Product images; SMTP; DNS,High,4 hours,1 hour,Replatform,Wave 1
+File Archive,Operations Manager,IT Support,Internal Staff,SMB,None,Windows file shares,Medium,8 hours,24 hours,Replatform,Wave 1
