@@ -399,3 +399,31 @@ It is about improving **security, scalability, reliability, backup, monitoring, 
 </p>
 
 [⬆ Back to Top](#top)
+
+---
+
+<!-- PROJECT STANDARD FOOTER START -->
+
+<p align="center">
+  <a href="#top">⬆ Back to Top</a> •
+  <a href="README.md">🏠 Home</a> •
+  <a href="docs/README.md">📚 Documentation</a> •
+  <a href="docs/setup/09-aws-console-manual-setup.md">🖱️ AWS Console Manual Setup</a> •
+  <a href="AUTHOR.md">👤 Author</a>
+</p>
+
+<p align="center">
+  <strong>AWS Cloud Migration Starter Kit for SMEs</strong><br>
+  Created by <strong>Xuan Toan Nguyen</strong><br>
+  IT Support &amp; Systems Administration Candidate — Adelaide, South Australia, Australia<br>
+  <a href="https://www.linkedin.com/in/toan-nguyen-it-oz">LinkedIn</a> •
+  <a href="https://github.com/toannguyenitoz">GitHub</a>
+</p>
+
+<p align="center">
+  <em>Learn → Build → Document → Share</em><br>
+  <strong>#ToanNguyenITOz</strong>
+</p>
+
+<!-- PROJECT STANDARD FOOTER END -->
+
